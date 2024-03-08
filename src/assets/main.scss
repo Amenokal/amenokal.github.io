@@ -1,0 +1,20 @@
+// @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Inter:wght@100..900&display=swap');
+
+.project {
+  height: 100%;
+  width: 100%;
+  padding: 1rem 3rem;
+
+  h2 {
+    font-size: 3rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: .25rem;
+  }
+
+  h3 {
+    display: inline-flex;
+    font-size: 1.3rem;
+    align-items: center;
+  }
+}
