@@ -1,21 +1,25 @@
 <template>
-  <div class="project">
-    <h2>Générateur procédural</h2>
-    <div id="gameScreen">
-      <div class="GUI">
-        <button @click="scene.reset()">Générer</button>
-        <p @click="handleCheckBox(0)"><span class="checkbox" :class="{'checked': checkedBox === 0}"/>Île</p>
-        <p @click="handleCheckBox(1)"><span class="checkbox" :class="{'checked': checkedBox === 1}"/>Vallée</p>
-        <p @click="handleCheckBox(2)"><span class="checkbox" :class="{'checked': checkedBox === 2}"/>Lac</p>
+  <ProjectTemplate>
+    <template #title>Générateur procédural</template>
+    <template #subtitle>Projet personnel</template>
+    <template #content>
+      <div id="gameScreen">
+        <div class="GUI">
+          <button @click="scene.reset()">Générer</button>
+          <p @click="handleCheckBox(0)"><span class="checkbox" :class="{'checked': checkedBox === 0}"/>Île</p>
+          <p @click="handleCheckBox(1)"><span class="checkbox" :class="{'checked': checkedBox === 1}"/>Vallée</p>
+          <p @click="handleCheckBox(2)"><span class="checkbox" :class="{'checked': checkedBox === 2}"/>Lac</p>
+        </div>
       </div>
-    </div>
-  </div>
+    </template>
+  </ProjectTemplate>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { useScene } from '@/composables/useScene'
-import { setConfig } from '@/scripts/config'
+import { useScene } from '@/composables/useScene.js'
+import { setConfig } from '@/scripts/config.js'
+import ProjectTemplate from '../ProjectTemplate.vue'
 
 const scene = useScene()
 onMounted(() => scene.start())

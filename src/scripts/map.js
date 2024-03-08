@@ -210,6 +210,7 @@ export function generateMapData() {
     })
 
   // add cliffs
+  if(CONFIG.TYPE !== "LAKE")
   tiles
     .filter(tile => tile.data.type > 1 && tile.data.type < 4)
     .forEach(tile => {

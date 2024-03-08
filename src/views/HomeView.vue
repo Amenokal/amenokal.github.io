@@ -3,14 +3,16 @@
     <div class="left">
       <button @click="changeProject(0)" :style="{'active': project === 0}">la-station.com</button>
       <button @click="changeProject(1)" :style="{'active': project === 1}">xavier-cauchy.com</button>
-      <button @click="changeProject(2)" :style="{'active': project === 2}">Threejs</button>
+      <button @click="changeProject(2)" :style="{'active': project === 2}">Vue Components</button>
+      <button @click="changeProject(3)" :style="{'active': project === 3}">Threejs</button>
     </div>
 
     <div class="right">
       <div class="animation-pannel"/>
       <LaStation v-if="project === 0"/>
       <XavierCauchy v-if="project === 1"/>
-      <ThreeScene v-if="project === 2"/>
+      <VueComponents v-if="project === 2"/>
+      <ThreeScene v-if="project === 3"/>
     </div>
   </main>
 </template>
@@ -18,9 +20,10 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useThree } from '@/composables/useThree'
-import XavierCauchy from '@/components/pages/XavierCauchy.vue'
-import LaStation from '@/components/pages/LaStation.vue'
-import ThreeScene from '@/components/pages/ThreeScene.vue'
+import XavierCauchy from '@/components/projects/XavierCauchy.vue'
+import LaStation from '@/components/projects/LaStation.vue'
+import ThreeScene from '@/components/projects/ThreeScene.vue'
+import VueComponents from '@/components/projects/VueComponents.vue'
 
 const three = useThree()
 const project = ref(0)

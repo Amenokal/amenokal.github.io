@@ -3,11 +3,11 @@ import { distanceFactor } from './map.utils'
 const ISLAND_CONFIG = {
   TYPE: "ISLAND",
   SIZE: 8,
-  HMAP_SEED_MIN_HEIGHT: .66,
-  HMAP_ZOOM: 600,
-  SEA_LEVEL: -5,
+  HMAP_SEED_MIN_HEIGHT: .3,
+  HMAP_ZOOM: 400,
+  SEA_LEVEL: -3,
   SMOOTHING: 6,
-  getHeight: (rawHeight, hex) => (Math.ceil(rawHeight * 10) * 10) + (CONFIG.SEA_LEVEL * 10) + (distanceFactor(hex))
+  getHeight: (rawHeight, hex) => (Math.ceil(rawHeight * 10) * 10) + (CONFIG.SEA_LEVEL * 10) + (distanceFactor(hex))/2
 }
 const VALLEY_CONFIG = {
   TYPE: "VALLEY",

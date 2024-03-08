@@ -29,21 +29,39 @@ header {
 
   a {
     margin-left: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 400;
 
-    &::after {
+    &::before {
       content: '';
-      height: 1px;
-      background-color: black;
+      height: .8rem;
+      background-color: rgba(8, 8, 8, .1);
       width: 0%;
       transition: .2s ease-out;
       position: absolute;
-      bottom: -5px;
-      left: 0;
+      top: 0rem;
+      right: -.8rem;
+      transform: rotate(180deg);
+      z-index: -1;
+    }
+    &::after {
+      content: '';
+      height: .8rem;
+      background-color: rgba(8, 8, 8, .3);
+      width: 0%;
+      transition: .2s ease-out;
+      position: absolute;
+      bottom: 0rem;
+      left: -.8rem;
+      z-index: -1;
     }
 
     &:hover {
+      &::before {
+        width: 110%;
+      }
       &::after {
-        width: 100%;
+        width: 110%;
       }
     }
   }
