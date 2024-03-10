@@ -10,7 +10,6 @@ import Header from '@/components/Header.vue'
 
 <style lang="scss" scoped>
 header {
-  line-height: 1.5;
   max-height: 100vh;
   display: flex;
   align-items: center;

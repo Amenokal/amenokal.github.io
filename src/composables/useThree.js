@@ -9,6 +9,9 @@ const customObjects = ref([])
 export function useThree() {
 
   async function loadAssets() {
+    if(customObjects.value.length === ASSETS.length)
+    return new Promise(resolve => resolve())
+
     await new Promise(resolve => {
       ASSETS.forEach(name => {
 

@@ -1,5 +1,5 @@
 <template>
-  <ProjectTemplate>
+  <ProjectTemplate :hideGalery="true">
     <template #title>Générateur procédural</template>
     <template #subtitle>Projet personnel</template>
     <template #content>
@@ -17,12 +17,18 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useThree } from '@/composables/useThree'
 import { useScene } from '@/composables/useScene.js'
 import { setConfig } from '@/scripts/config.js'
 import ProjectTemplate from '../ProjectTemplate.vue'
 
+const three = useThree()
 const scene = useScene()
-onMounted(() => scene.start())
+
+onMounted(async () => {
+  await three.loadAssets()
+  scene.start()
+})
 onUnmounted(() => scene.destroy())
 
 const checkedBox = ref(0)
@@ -79,10 +85,10 @@ function handleCheckBox(id) {
     }
   }
 }
+
 #gameScreen {
   height: 100%;
   width: 100%;
   filter: saturate(1.1) contrast(1.1);
-  border: 1px solid black;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <ProjectTemplate>
     <template #title>Vue Components</template>
-    <template #subtitle>Documentation et boilerplate de composants Vue réutilisables</template>
+    <template #subtitle>Library personnelle de composants Vue</template>
   </ProjectTemplate>
 </template>
 

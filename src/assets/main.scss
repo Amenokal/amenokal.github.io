@@ -1,3 +1,45 @@
+@font-face {
+  font-family: "Archia";
+  src: url("/fonts/archia-regular-webfont.woff") format("woff");
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: 200;
+  font-family: Archia !important;
+}
+
+body {
+  height: 100vh;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 200;
+  font-size: 3rem;
+}
+
+a {
+  color: black;
+  font-size: 1.2rem;
+  text-decoration: none;
+  position: relative;
+
+  &:visited {
+    color: black;
+  }
+}
+
 .project {
   height: 100%;
   width: 100%;
@@ -5,71 +47,47 @@
   overflow-y: scroll;
 
   h2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 100;
     text-transform: uppercase;
-    letter-spacing: .25rem;
+    letter-spacing: .15rem;
     position: relative;
+    line-height: 3.5rem;
     width: max-content;
-    
-    &::before {
-      content: '';
-      height: 2rem;
-      background-color: rgba(8, 8, 8, .1);
-      width: 0%;
-      transition: .2s ease-out;
-      position: absolute;
-      bottom: 1rem;
-      left: -1rem;
-      transform: rotate(180deg);
-      z-index: -1;
-      width: 90%;
-    }
   }
 
   h3 {
     display: inline-flex;
-    font-size: 1.7rem;
+    font-size: 2rem;
     align-items: center;
     position: relative;
-    top: -1.25rem;
     left: 3rem;
     box-sizing: border-box;
+    margin-right: 2rem;
+    line-height: 2rem;
+
+    &::before {
+      content: '>';
+      position: absolute;
+      top: 0;
+      left: -1.5rem;
+    }
   }
 
   h4 {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     font-weight: 100;
     position: relative;
     padding-top: 1rem;
-    padding-left: 1rem;
-    margin-bottom: 2rem;
-
-    &:not(:first-of-type) {
-      border-top: 1px solid lightgray;
-    }
-
-    &::before {
-      content: '';
-      height: .7rem;
-      background-color: rgba(8, 8, 8, .1);
-      width: 0%;
-      transition: .2s ease-out;
-      position: absolute;
-      bottom: .25rem;
-      left: .5rem;
-      transform: rotate(180deg);
-      z-index: -1;
-      width: 6%;
-    }
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 1.5rem;
   }
 
   .pic-grid {
-    height: 500px;
+    height: 250px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 33.33%);
-    grid-template-rows: repeat(2, 50%);
     gap: .25rem;
     box-sizing: border-box;
 
