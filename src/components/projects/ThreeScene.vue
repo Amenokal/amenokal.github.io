@@ -1,7 +1,9 @@
 <template>
-  <ProjectTemplate :hideGalery="true">
-    <template #title>Générateur procédural</template>
-    <template #subtitle>Projet personnel</template>
+  <PageTemplate :hideGalery="true">
+    <template #title>Three JS</template>
+    
+    <template #subtitle>Générateur de paysages procéduraux</template>
+
     <template #content>
       <div id="gameScreen">
         <div class="GUI">
@@ -12,7 +14,12 @@
         </div>
       </div>
     </template>
-  </ProjectTemplate>
+
+    <template #technos>
+      <JSIcon/>
+      <ThreeIcon/>
+    </template>
+  </PageTemplate>
 </template>
 
 <script setup>
@@ -20,7 +27,9 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useThree } from '@/composables/useThree'
 import { useScene } from '@/composables/useScene.js'
 import { setConfig } from '@/scripts/config.js'
-import ProjectTemplate from '../ProjectTemplate.vue'
+import PageTemplate from '@/components/elements/PageTemplate.vue'
+import JSIcon from '@/components/icons/JSIcon.vue'
+import ThreeIcon from '@/components/icons/ThreeIcon.vue'
 
 const three = useThree()
 const scene = useScene()

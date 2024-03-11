@@ -53,19 +53,27 @@ export function useScene() {
   function show() {
     instance.value.tiles.forEach(tile => {
       gsap.to(tile.meshes.tile.scale, {
-        z: tile.display.height / 10,
+        x: 1,
+        y: 1,
         duration: .5,
       })
-  
-      if(tile.meshes.decorum)
+
       setTimeout(() => {
-        gsap.to(tile.meshes.decorum.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          duration: .2,
+        gsap.to(tile.meshes.tile.scale, {
+          z: tile.display.height / 10,
+          duration: .5,
         })
-      }, 300)
+    
+        if(tile.meshes.decorum)
+        setTimeout(() => {
+          gsap.to(tile.meshes.decorum.scale, {
+            x: 1,
+            y: 1,
+            z: 1,
+            duration: .2,
+          })
+        }, 250)
+      }, 250)
     })
   }
   function hide() {
@@ -75,18 +83,26 @@ export function useScene() {
           x: 0,
           y: 0,
           z: 0,
-          duration: .2,
+          duration: .5,
         })
         gsap.to(tile.meshes.decorum.position, {
           y: 0,
-          duration: .2,
+          duration: .5,
         })
       }
 
       gsap.to(tile.meshes.tile.scale, {
         z: 0,
-        duration: .2,
+        duration: .5,
       })
+
+      setTimeout(() => {
+        gsap.to(tile.meshes.tile.scale, {
+          x: 0,
+          y: 0,
+          duration: .25,
+        })
+      }, 250)
     })
   }
 

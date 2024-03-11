@@ -1,11 +1,18 @@
 <template>
-  <ProjectTemplate>
+  <PageTemplate>
     <template #title>Xavier Cauchy Photographie</template>
     <template #subtitle>Portfolio pour photographe professionel</template>
-  </ProjectTemplate>
+    <template #technos>
+      <NuxtIcon/>
+      <SassIcon/>
+      <NodeIcon/>
+    </template>
+  </PageTemplate>
 </template>
 
 <script setup>
-  import ProjectTemplate from '../ProjectTemplate.vue'
-  import OpenLinkIcon from '../elements/OpenLinkIcon.vue'
+import PageTemplate from '@/components/elements/PageTemplate.vue'
+import NuxtIcon from '@/components/icons/NuxtIcon.vue'
+import SassIcon from '@/components/icons/SassIcon.vue'
+import NodeIcon from '@/components/icons/NodeIcon.vue'
 </script>

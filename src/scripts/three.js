@@ -41,10 +41,6 @@ export function createRenderer(scene, camera) {
   const outputPass = new OutputPass()
   composer.addPass(outputPass)
 
-  // const effectFXAA = new ShaderPass( FXAAShader )
-  // effectFXAA.uniforms['resolution'].value.set( 1 / sceneContainer.width, 1 / sceneContainer.height )
-  // composer.addPass(effectFXAA)
-
   return { renderer, composer }
 }
 export function createControls(camera, renderer) {
@@ -83,6 +79,7 @@ export function createBase() {
 
   return [hemiLight, dayAmbiance, sunLight]
 }
+
 export function createTiles(tiles, customObjects) {
   let meshes = []
   tiles.forEach(tile => {
@@ -161,13 +158,14 @@ function handleDOMResize(camera, renderer, composer) {
   camera.updateProjectionMatrix()
 
   renderer.setSize( width, height )
-  renderer.setSize( width, height )
+  composer.setSize( width, height )
 }
 export function handleDOM(camera, renderer, composer) {
   const gameScreen = document.getElementById('gameScreen')
   gameScreen.appendChild(renderer.domElement)
   window.onresize = function() { handleDOMResize(camera, renderer, composer) }
 }
+
 // ------------------------------------------------------------------------
 // UTILS
 
@@ -175,7 +173,7 @@ function createHexagon(tile) {
   const tileMesh = MESHES.TILE.clone()
   tileMesh.material = MESHES.TILE.material.clone()
   tileMesh.material.color = new THREE.Color(tile.display.color)
-  tileMesh.scale.set(1, 1, 0)
+  tileMesh.scale.set(0, 0, 0)
   tileMesh.rotation.set(-Math.PI / 2, 0, -Math.PI / 2)
   return tileMesh
 }
