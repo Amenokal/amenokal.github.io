@@ -63,11 +63,6 @@ export function generateMapData() {
       tile.display.color = `#0084b2`
       tile.display.height = 10
     }
-    else if(height <= 10 && rawHeight < 0 && CONFIG.TYPE === "ISLAND") {
-      tile.data.type = 1
-      tile.display.name = "Plage"
-      tile.display.color = getBeachColor(height)
-    }
     else if(height < 70) {
       tile.data.type = 2
       tile.display.name = "Plaine"
@@ -119,6 +114,22 @@ export function generateMapData() {
       if(!tile.neighbors.find(n => n.data.type > 0) && tile.neighbors.find(n => n.data.shore)) {
         tile.data.deepShore = true
         tile.display.color = "hsl(192, 78%, 40%)"
+      }
+    })
+
+  // add beaches
+  if(CONFIG.TYPE === "ISLAND")
+  tiles
+    .filter(tile => tile.data.type === 2)
+    .forEach(tile => {
+      if(tile.neighbors.find(n => n.data.shore) && tile.data.rawHeight < 0) {
+        tile.data.type = 1
+        tile.display.name = "Plage"
+        tile.display.color = getBeachColor(tile.display.height)
+        tile.display.height = 10
+      }
+      else if(tile.display.height < 20) {
+        tile.display.height = 20
       }
     })
 

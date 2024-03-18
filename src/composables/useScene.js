@@ -55,7 +55,7 @@ export function useScene() {
       gsap.to(tile.meshes.tile.scale, {
         x: 1,
         y: 1,
-        duration: .5,
+        duration: .2,
       })
 
       setTimeout(() => {
@@ -72,7 +72,7 @@ export function useScene() {
             z: 1,
             duration: .2,
           })
-        }, 250)
+        }, 200)
       }, 250)
     })
   }
@@ -100,9 +100,9 @@ export function useScene() {
         gsap.to(tile.meshes.tile.scale, {
           x: 0,
           y: 0,
-          duration: .25,
+          duration: .2,
         })
-      }, 250)
+      }, 200)
     })
   }
 

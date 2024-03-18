@@ -12,15 +12,14 @@
     </div>
 
     <div class="right">
-      <div class="animation-pannel"/>
       <component :is="projects[projectId].component"/>
     </div>
   </main>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import Portfolio from '@/components/projects/Portfolio.vue'
+import { ref, onMounted } from 'vue'
+import FlanQuest from '@/components/projects/FlanQuest.vue'
 import LaStation from '@/components/projects/LaStation.vue'
 import XavierCauchy from '@/components/projects/XavierCauchy.vue'
 import VueComponents from '@/components/projects/VueComponents.vue'
@@ -29,24 +28,18 @@ import SvgBg from '@/components/elements/SvgBg.vue'
 
 const projectId = ref(0)
 const projects = [
-  { name: "portfolio", component: Portfolio },
   { name: "la-station.com", component: LaStation },
+  { name: "algorithmie procédurale", component: ThreeScene },
   { name: "xavier-cauchy.com", component: XavierCauchy },
-  { name: "vue components", component: VueComponents },
-  { name: "three js", component: ThreeScene }
+  { name: "la quête du flan parfait", component: FlanQuest },
+  { name: "documentation vue3", component: VueComponents },
 ]
 
 function changeProject(id) {
-  if(projectId.value === id)
-  return
-
-  const animationTime = 800
-  const animPannel = document.querySelector('.animation-pannel')
-  animPannel.classList.add('active')
-
-  setTimeout(() => projectId.value = id, animationTime / 2)
-  setTimeout(() => animPannel.classList.remove('active'), animationTime)
+  projectId.value = id
+  document.querySelector('.right').scrollTo({ top: 0, behavior: "smooth" })
 }
+
 </script>
   
 <style lang="scss" scoped>
@@ -54,18 +47,19 @@ main {
   height: 90vh;
   display: flex;
 
-  &>div {
-    height: 100%;
-  }
-
   .left {
-    position: relative;
     width: 20%;
-    min-width: 250px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-right: 3px solid black;
+    left: 0%;
+    transition: .25s ease-out;
+
+    &.hide {
+      left: -20% !important;
+    }
 
     button {
       width: 90%;
@@ -121,31 +115,9 @@ main {
     }
   }
   .right {
-    width: 80%;
+    width: 100%;
     position: relative;
     overflow: hidden;
-
-    .animation-pannel {
-      height: 100%;
-      width: 0%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: lightgray;
-      transform: skewX(-10deg);
-      z-index: 2;
-
-      &.active {
-        animation: changePannel .8s;
-      }
-    }
   }
-}
-
-@keyframes changePannel {
-  from { width: 0%; left: -5%; }
-  30% { width: 120%; left: -5%; }
-  70% { width: 120%; left: -5%; }
-  to { width: 120%; left: 100%; }
 }
 </style>

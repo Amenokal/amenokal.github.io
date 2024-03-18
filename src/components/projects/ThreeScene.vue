@@ -1,8 +1,8 @@
 <template>
   <PageTemplate :hideGalery="true">
-    <template #title>Three JS</template>
+    <template #title>Algorithmie Procédurale</template>
     
-    <template #subtitle>Générateur de paysages procéduraux</template>
+    <template #subtitle>Générateur de paysages numériques</template>
 
     <template #content>
       <div id="gameScreen">
@@ -16,8 +16,7 @@
     </template>
 
     <template #technos>
-      <JSIcon/>
-      <ThreeIcon/>
+      <JSIcon/> <ThreeIcon/>
     </template>
   </PageTemplate>
 </template>
@@ -27,7 +26,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useThree } from '@/composables/useThree'
 import { useScene } from '@/composables/useScene.js'
 import { setConfig } from '@/scripts/config.js'
-import PageTemplate from '@/components/elements/PageTemplate.vue'
+import PageTemplate from '@/components/templates/PageTemplate.vue'
 import JSIcon from '@/components/icons/JSIcon.vue'
 import ThreeIcon from '@/components/icons/ThreeIcon.vue'
 
